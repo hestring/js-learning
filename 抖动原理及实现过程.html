@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 320px;
+            height: 480px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+
+        img {
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+    </style>
+    <script src="my_js.js"></script>
+    <script>
+        $(function () {
+            var oImg = $('img');
+            function doShake(obj, attr, endFn) {
+                console.log(obj.onOff);
+                console.log(obj.onOff == false);
+                if(obj.onOff==false){
+                    return;
+                }
+                obj.onOff=false;
+                clearInterval(obj.shake);
+                var num = 0;
+                var pos = parseInt(getStyle(obj, attr));
+                var arr = [];
+                for (var i = 20; i > 0; i -= 2) {
+                    arr.push(i, -i);
+                }
+                arr.push(0);
+                obj.shake = setInterval(function () {
+                    obj.style[attr] = pos + arr[num] + 'px';
+                    num++;
+                    if (num === arr.length) {
+                        clearInterval(obj.shake);
+                        obj.onOff=true;
+                        endFn && endFn();
+                    }
+                }, 80);
+            }
+
+            oImg.onmouseover = function () {
+                var _this = this;
+                doShake(this, 'left', function () {
+                    doShake(_this, 'top');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+<div id="box"></div>
+<img src="images/1.jpg" alt="" id="img">
+</body>
+</html>
