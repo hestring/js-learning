@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="my_js.js"></script>
+    <script>
+        $(function () {
+            var str='';
+            var len=10;
+            var aDiv=document.getElementsByTagName('div');
+            for(var i=0;i<len;i++){
+                str+='<div style="width: 20px;height: 20px;background: #f00;position: absolute;top: 0;left: '+i*30+'px;"></div>';
+            }
+            document.body.innerHTML=str;
+            var num=0;
+            var timer=null;
+            var onOff=true;
+            document.onclick=function () {
+                clearInterval(timer);
+                if(onOff){
+                    timer=setInterval(function () {
+                        doMove(aDiv[num], 'top', 19, 200);
+                        num++;
+                        if(num===len){
+                            onOff=!onOff;
+                            num=len-1;
+                            clearInterval(timer);
+                        }
+                    },50);
+                }else{
+                    timer=setInterval(function () {
+                        doMove(aDiv[num], 'top', 19, 0);
+                        num--;
+                        if(num===-1){
+                            onOff=!onOff;
+                            num=0;
+                            clearInterval(timer);
+                        }
+                    },50);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

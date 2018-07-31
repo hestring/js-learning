@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+    var arr1=[];
+    var arr2=[];
+    var arr3=[];
+    var max=0;
+    for (var i=0;i<arr.length;i++){
+        if(typeof arr[i]==='number'&&arr[i]===arr[i]){
+            arr1.push(arr[i]);
+        }
+        if(!isNaN(parseFloat(arr[i]))){
+            arr2.push(arr[i]);
+            if(parseFloat(arr[i])>max){
+                max=parseFloat(arr[i]);
+            }
+        }
+        if(isNaN(arr[i])&&typeof arr[i]==='number'){
+            arr3.push(i);
+        }
+    }
+    console.log(arr1);
+    console.log(arr2);
+    console.log(max);
+    console.log(arr3);
+
+</script>
+</body>
+</html>

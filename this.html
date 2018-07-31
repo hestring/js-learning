@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #button{
+            width: 100px;
+            height: 100px;
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+<div id="button" onmouseout="console.log(this);fn();"></div>
+<script>
+    // alert(this);
+    // window.alert(this);
+    function fn() {
+        // alert(this);
+        console.log(this);
+    }
+    // fn();
+    var oBtn=document.getElementById('button');
+    oBtn.onclick=function () {
+        // console.log(this);
+        // alert(this);
+        // fn();
+        (function () {
+            console.log(this);
+        })();
+    }
+    // oBtn.onmouseover=fn;
+</script>
+</body>
+</html>

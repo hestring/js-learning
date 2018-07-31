@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var oBody=document.body;
+    var aDiv=document.getElementsByTagName('div');
+    var str='';
+    for(var i=0;i<10000;i++){
+        str+='<div>'+i+'</div>';
+    }
+    oBody.innerHTML=str;
+    var len=aDiv.length;
+    for(i=0;i<len;i++){
+        aDiv[i].style.width=aDiv[i].style.height='100px';
+        aDiv[i].style.background='#0ff';
+        aDiv[i].style.cssFloat='left';
+        aDiv[i].style.margin='10px';
+        // aDiv[i].style.cssText='text-align:center;';
+    }
+</script>
+</body>
+</html>

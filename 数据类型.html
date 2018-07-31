@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num=function () {
+        return 1;
+    };
+    console.log(Number(num)); //NaN
+    //Number用来转数组里的东西需要特别留意
+    console.log(Number([]));   //空数组是0
+    console.log(Number(['']));
+    console.log(Number([123]));
+    console.log(Number(['123']));
+    console.log(Number([1,2,3,4,5]));
+    console.log(Number([[]]));
+
+    //Number对json无能为力
+    var json1={};
+    console.log(Number(json1));
+    var json2={age:10};
+    console.log(Number(json2));
+
+    console.log(Number(null)); //0
+    console.log(Number(undefined)); //NaN
+
+    var obj={
+        name:'tom',
+        age: 18,
+        move:function () {
+            return 1;
+        }
+    };
+    var json=JSON.stringify(obj);
+    console.log(obj);
+    console.log(json);
+
+    //parseInt这种最好只用来转字符串
+    //radix可以转换进制
+    console.log(parseInt('+100px'));
+
+    // parseInt(num)===parseFloat()判断是整数还是小数
+
+    //隐式类型转换 -*/% 变成数字  +变成字符串 ++ -- ><
+    //'10'>'9'  字符串比较是按照编码进行的
+    //==  ===判断类型了
+
+    var fn1=function () {
+        return 1;
+    };
+    var fn2=function () {
+        return 1;
+    };
+    console.log(fn1 === fn2);
+</script>
+</body>
+</html>

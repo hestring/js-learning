@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,p{
+            margin: 0;
+        }
+        ul{
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        #pic{
+            width: 320px;
+            height: 480px;
+            box-shadow: 0 0 5px 3px #000;
+            margin: 10px auto;
+            position: relative;
+            background: #fff url(images/loading.gif) no-repeat center;
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            right: -60px;
+        }
+        li{
+            width: 50px;
+            height: 50px;
+            background: #000;
+            margin-bottom: 10px;
+        }
+        .active{
+            background: #f00;
+        }
+        p,span{
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            font: 20px/50px "Courier New";
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+        }
+        p{
+            bottom: 0;
+        }
+        span{
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oPic=document.getElementById('pic');
+            var oImg=oPic.getElementsByTagName('img')[0];
+            var oUl=oPic.getElementsByTagName('ul')[0];
+            var oSpan=oPic.getElementsByTagName('span')[0];
+            var oP=oPic.getElementsByTagName('p')[0];
+            var aLi=oUl.getElementsByTagName('li');
+
+            var arrUrl=['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg'];
+            var arrText=['Photo-1','Photo-2','Photo-3','Photo-4'];
+            var num=0;
+            var oldLi=null;
+            //初始化
+            for(var i=0;i<arrUrl.length;i++){
+                oUl.innerHTML+='<li></li>';
+            }
+            oldLi=aLi[num];
+            oImg.src=arrUrl[num];
+            oSpan.innerHTML=num+1+'/'+arrUrl.length;
+            oP.innerHTML=arrText[num];
+            aLi[num].className='active';
+            //添加
+            for(i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aLi[i].onclick=function () {
+                    oImg.src=arrUrl[this.index];
+                    oSpan.innerHTML=this.index+1+'/'+arrUrl.length;
+                    oP.innerHTML=arrText[this.index];
+                    //全部清空，当前添加
+                    for(var j=0;j<aLi.length;j++){
+                        aLi[j].className='';
+                    }
+                    aLi[this.index].className='active';
+                    // 思路二：清空上个，当前添加（性能更好）
+                    // oldLi.className='';
+                    // oldLi=this;
+                    // this.className='active';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="pic">
+    <img src="" alt="">
+    <ul></ul>
+    <span>PageNumber Loading...</span>
+    <p>Description Loading...</p>
+</div>
+</body>
+</html>

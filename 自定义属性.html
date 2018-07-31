@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li{
+            width: 105px;
+            height: 118px;
+            /*border: 1px solid #000;*/
+            float: left;
+            margin-left: 20px;
+            background: #fff url(images/normal.png);
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oList=document.getElementById('list');
+            var aLi=oList.getElementsByTagName('li');
+            var len=aLi.length;
+            // var onOff=true;
+            for(var i=0;i<len;i++){
+                aLi[i].onOff=true;
+                aLi[i].onclick=function () {
+                    if(this.onOff){
+                        this.style.background='url(images/active.png)';
+                        this.onOff=false;
+                    }else{
+                        this.style.background='url(images/normal.png)';
+                        this.onOff=true;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

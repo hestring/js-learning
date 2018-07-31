@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #0ff;
+            float: left;
+            margin-left: 20px;
+            font: 50px/100px Consolas;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var arr=['A','B','C','D'];
+            var aDiv=document.getElementsByTagName('div');
+
+            for (var i=0;i<aDiv.length;i++){
+                aDiv[i].num=0;
+                aDiv[i].onclick=function () {
+                    this.innerHTML=arr[this.num];
+                    this.num++;
+                    if(this.num===arr.length){
+                        this.num=0;
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div>0</div>
+<div>0</div>
+<div>0</div>
+<div>0</div>
+</body>
+</html>

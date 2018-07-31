@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            padding: 0;
+            border: none;
+            outline: none;
+            border: 1px dashed #000;
+            border-radius: 30px;
+            background: #0ff;
+            width: 60px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oBtn=document.getElementsByTagName('input');
+            for(var i=0;i<oBtn.length;i++){
+                oBtn[i].onclick=function () {
+                    console.log(i);
+                    for(i=0;i<oBtn.length;i++){
+                        oBtn[i].style.background='#f00';
+                        oBtn[i].style.color='#fff';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="btn1">
+<input type="button" value="btn2">
+<input type="button" value="btn3">
+<input type="button" value="btn4">
+<input type="button" value="btn5">
+</body>
+</html>

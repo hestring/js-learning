@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            padding: 0;
+            border: none;
+            outline: none;
+
+            width: 40px;
+            height: 20px;
+            background: #00ffff;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var aBtn=document.getElementsByTagName('input');
+            var arr=['张三','李四','王二'];
+
+            var aLi=document.getElementsByTagName('li');
+
+            for (var i=0;i<aBtn.length;i++) {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function () {
+                    this.value=arr[this.index];
+                    aLi[this.index].innerHTML=arr[this.index];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="btn1">
+<input type="button" value="btn2">
+<input type="button" value="btn3">
+<ol id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+</body>
+</html>

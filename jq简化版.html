@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        function $(v) {
+            if(typeof v==="function"){
+                return window.onload=v;
+            }else if(typeof  v==="string"){
+                return document.getElementById(v);
+            }else if (typeof v==="object"){
+                return v;
+            }
+        }
+        $(function () {
+            $('btn').onclick=function () {
+                $(this).style.background='#ff0';
+                $('div').style.background='#f00';
+            }
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="OK" id="btn">
+<div id="div"></div>
+
+</body>
+</html>

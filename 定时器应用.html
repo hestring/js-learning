@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #main{
+            width: 300px;
+            height: 500px;
+            background: #ff0000;
+        }
+        #profile{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            background: #ff0;
+            position: absolute;
+            left: 310px;
+            top: 0;
+            display: none;
+        }
+    </style>
+    <script src="my_js.js"></script>
+    <script>
+        $(function () {
+            var oMain=$('main');
+            var oProfile=$('profile');
+            var timer=null;
+            
+            oMain.onmouseover=function () {
+                clearTimeout(timer);
+                oProfile.style.display='block';
+            };
+            oMain.onmouseout=function () {
+                timer=setTimeout(function () {
+                    oProfile.style.display='none';
+                },200);
+            };
+            oProfile.onmouseover=function () {
+                clearTimeout(timer);
+                oProfile.style.display='block';
+            };
+            oProfile.onmouseout=function () {
+                timer=setTimeout(function () {
+                    oProfile.style.display='none';
+                },200);
+            }
+        });
+    </script>
+</head>
+<body>
+<div id="main"></div>
+<div id="profile"></div>
+</body>
+</html>

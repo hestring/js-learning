@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function calu() {
+        var sign=arguments[arguments.length-1];
+        var result=0;
+        if(sign==='+'){
+            for(var i=0;i<arguments.length-1;i++){
+                result+=arguments[i];
+            }
+        }else if(sign==='-'){
+            result=arguments[0];
+            for(var i=1;i<arguments.length-1;i++){
+                result-=arguments[i];
+            }
+        }
+        return result;
+    }
+
+    console.log(calu(1, 2, 3, '+'));;  //6
+    console.log(calu(10, '-'));; //5
+</script>
+</body>
+</html>

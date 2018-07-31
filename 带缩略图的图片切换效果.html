@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        #pic{
+            width: 700px;
+            height: 525px;
+            border: 1px solid #f00;
+            margin: 10px auto;
+            position: relative;
+        }
+        #pic ul{
+            position: absolute;
+            bottom: -50px;
+        }
+        #pic li{
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-right: 10px;
+            background: #f00;
+            position: relative;
+        }
+        #pic li img{
+            position: absolute;
+            width: 150px;
+            top: -130px;
+            left: -50px;
+            display: none;
+            box-shadow: 0 0 3px 3px #f00;
+            z-index: 998;
+        }
+        #pic li:hover img{
+            display: block;
+        }
+        #prev,#next{
+            position: absolute;
+            top: 225px;
+            width: 50px;
+            height: 50px;
+            background: #f00;
+            color: #fff;
+            font: 30px/50px "Courier New";
+            text-align: center;
+            border-radius: 50%;
+        }
+        #prev{
+            left: 10px;
+        }
+        #next{
+            right: 10px;
+        }
+        #pic p{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background-color: rgba(255,0,0,0.3);
+            font: 20px/30px "Courier New";
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oPic=document.getElementById('pic');
+            var oImg=oPic.getElementsByTagName('img')[0];
+            var oUl=oPic.getElementsByTagName('ul')[0];
+            var oPrev=document.getElementById('prev');
+            var oNext=document.getElementById('next');
+            var oP=oPic.getElementsByTagName('p')[0];
+            var arrUrl=['images/01.jpg','images/02.jpg','images/03.jpg','images/04.jpg','images/05.jpg'];
+            var num=0;
+            var aLi=oPic.getElementsByTagName('li');
+            for(var i=0;i<arrUrl.length;i++){
+                oUl.innerHTML+='<li><img src='+arrUrl[i]+'></li>';
+            }
+            function fnPic(){
+                oImg.src=arrUrl[num];
+                oP.innerHTML=num+1+'/'+arrUrl.length;
+            }
+            fnPic();
+            oNext.onclick=function () {
+                num++;
+                if(num===5){
+                    num=0;
+                }
+                fnPic();
+            };
+            oPrev.onclick=function () {
+                num--;
+                if(num===-1){
+                    num=4;
+                }
+                fnPic();
+            };
+            for(i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aLi[i].onclick=function () {
+                    num=this.index;
+                    fnPic();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="pic">
+    <img src="">
+    <ul></ul>
+    <a href="#" id="prev">&lt;</a>
+    <a href="#" id="next">&gt;</a>
+    <p></p>
+</div>
+</body>
+</html>

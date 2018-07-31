@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var oBody=document.body;
+    // setTimeout(function () {
+    //     oBody.style.background='#f00';
+    //     setTimeout(function () {
+    //         oBody.style.background='#fff';
+    //     },3000);
+    // },2000);
+    function random() {
+        return Math.floor(Math.random()*256);
+    }
+    function color() {
+        return `rgb(${random()},${random()},${random()})`;
+    }
+    setInterval(function () {
+        var c_color=color();
+        oBody.style.background=c_color;
+        console.log(c_color);
+    },14);
+</script>
+</body>
+</html>

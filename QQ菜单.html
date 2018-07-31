@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,h2{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #list{
+            width: 300px;
+            border: 1px solid #000;
+            margin: 20px auto;
+        }
+        #list h2 {
+            height: 50px;
+            line-height: 50px;
+            text-indent: 20px;
+            background: #6ff url(images/ico1.gif) 5px  no-repeat;
+        }
+        #list ul{
+            display: none;
+        }
+        #list ul li{
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #00f;
+            text-indent: 24px;
+        }
+        #list .active{
+            background-image: url(images/ico2.gif);
+            background-color: #ff0;
+        }
+        #list .hover{
+            background: #ccc;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oList=document.getElementById('list');
+            var aH2=oList.getElementsByTagName('h2');
+            var aUl=oList.getElementsByTagName('ul');
+            var aLi=null;
+            var arrLi=[];
+            for(var i=0;i<aUl.length;i++){
+                aH2[i].index=i;
+                aH2[i].onclick=function () {
+                    if(this.className===''){
+                        for(i=0;i<aUl.length;i++){
+                            aUl[i].style.display='none';
+                            aH2[i].className='';
+                        }
+                        aUl[this.index].style.display='block';
+                        this.className='active';
+                    }else{
+                        aUl[this.index].style.display='none';
+                        this.className='';
+                    }
+                }
+            }
+            //小套路
+            for(i=0;i<aUl.length;i++){
+                aLi=aUl[i].getElementsByTagName('li');
+                for(var j=0;j<aLi.length;j++){
+                    arrLi.push(aLi[j]);
+                }
+            }
+            console.log(arrLi.length);
+            for (i=0;i<arrLi.length;i++){
+                arrLi[i].onclick=function () {
+                    if(this.className===''){
+                        for(i=0;i<arrLi.length;i++){
+                            arrLi[i].className='';
+                        }
+                        this.className='hover';
+                    }else{
+                        this.className='';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <h2>我的好友</h2>
+        <ul>
+            <li>张三</li>
+            <li>张三</li>
+            <li>张三</li>
+        </ul>
+    </li>
+    <li>
+        <h2>企业好友</h2>
+        <ul>
+            <li>李四</li>
+            <li>李四</li>
+            <li>李四</li>
+        </ul>
+    </li>
+    <li>
+        <h2>黑名单</h2>
+        <ul>
+            <li>王五</li>
+            <li>王五</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

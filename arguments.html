@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    fn(1,2,3);
+    function fn() {
+        // alert(arguments);
+        console.log(arguments);
+        console.log(arguments[arguments.length - 1]);
+    }
+    
+    function sum() {
+        var n=0;
+        for (var i=0;i<arguments.length;i++){
+            sum+=arguments[i];
+        }
+        return n;
+    }
+</script>
+</body>
+</html>

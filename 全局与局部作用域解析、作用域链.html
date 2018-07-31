@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*var a=100;
+    function fn1() {
+        console.log(a);   //a fn1
+        var a=200;
+    }
+    fn1();  //a
+    console.log(a);*/
+
+    /*var a=100;
+    function fn1() {
+        console.log(a);   //a fn1
+        a=200;
+    }
+    fn1();  //  100 200
+    console.log(a);*/
+
+   /* var a=100;
+    function fn1(a) {
+        console.log(a);   //a fn1
+        a=200;
+    }
+    fn1();  //a   undefined 100
+    console.log(a);*/
+
+    /*function foo() {
+        console.log( a );       //foo{} bar{}  a=...  [开始]
+    }                           //a=2
+                                //bar=>  a=...
+                                //a=3
+                                //foo=>
+                                //3
+
+    function bar() {
+        var a = 3;
+        foo();
+    }
+
+    var a = 2;
+
+    bar();*/
+
+    function fn1() {
+        var x='2018-7-27';
+        fn2(x);
+    }
+    function fn2(a) {
+        console.log(a);
+    }
+    fn1();
+
+</script>
+</body>
+</html>

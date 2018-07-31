@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 50px;
+            height: 50px;
+            background: #f00;
+            position: absolute;
+            top: 80px;
+            left: 30px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oBtn1=document.getElementsByTagName('input')[0];
+            var oBtn2=document.getElementsByTagName('input')[1];
+            var oBtn3=document.getElementsByTagName('input')[2];
+            var oBtn4=document.getElementsByTagName('input')[3];
+            var oBtn5=document.getElementsByTagName('input')[4];
+            var oDiv=document.getElementById('div');
+            // oDiv.timer=null;
+            oBtn1.onclick=function () {
+                doMove(oDiv,19,'left',30);
+            };
+            oBtn2.onclick=function () {
+                doMove(oDiv,19,'left',800);
+            };
+            oBtn3.onclick=function () {
+                doMove(oDiv,19,'top',400);
+            };
+            oBtn4.onclick=function () {
+                doMove(oDiv,19,'top',80);
+            };
+            oBtn5.onclick=function () {
+                doMove(oDiv,19,'left',800,function () {
+                    doMove(oDiv,19,'top',400,function () {
+                        doMove(oDiv,19,'left',30,function () {
+                            doMove(oDiv,19,'top',80);
+                        })
+                    });
+                });
+            };
+            function doMove(obj,dir,attr,target,endFn) {
+                clearInterval(obj.timer);
+                dir=parseInt(getComputedStyle(obj)[attr])>target?-dir:dir;
+                obj.timer=setInterval(function () {
+                    var speed=parseInt(getComputedStyle(obj)[attr])+dir;
+                    if(speed<target&&dir<0||speed>target&&dir>0){
+                        speed=target;
+                    }
+                    obj.style[attr]=speed+'px';
+                    if(speed==target){
+                        clearInterval(obj.timer);
+                        endFn&&endFn();
+                    }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="往后">
+<input type="button" value="往前">
+<input type="button" value="往下">
+<input type="button" value="往上">
+<input type="button" value="先往后再往下">
+<div id="div"></div>
+</body>
+</html>

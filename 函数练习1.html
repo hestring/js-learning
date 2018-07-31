@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(fn(11, 5));
+    console.log(fn(5, 6));
+    function fn(a,b) {
+        var arr=[];
+        if(a<b){
+            for(var i=a;i<=b;i++){
+                arr.push(i);
+            }
+        }else{
+            for(var i=b;i<=a;i++){
+                arr.push(i);
+            }
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>
