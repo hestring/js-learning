@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="font: 50px simsun, serif;">
 <script>
-    alert(new Date());
+    function myMonth(m) {
+        return m + 1;
+    }
+    function myDay(d) {
+        switch (d) {
+            case 0:
+                return '星期日';
+            case 1:
+                return '星期一';
+            case 2:
+                return '星期二';
+            case 3:
+                return '星期三';
+            case 4:
+                return '星期四';
+            case 5:
+                return '星期五';
+            case 6:
+                return '星期六';
+        }
+    }
+
+    setInterval(showTime, 1000);
+    showTime();
+    function showTime() {
+        var oDate = new Date();
+        var str = '';
+        str = `
+        ${oDate.getFullYear()}年${myMonth(oDate.getMonth())}月${oDate.getDate()}日<br>
+        ${myDay(oDate.getDay())}<br>
+        ${oDate.getHours()}时${oDate.getMinutes()}分${oDate.getSeconds()}秒`;
+        document.body.innerHTML = str;
+    }
 </script>
 </body>
 </html>
