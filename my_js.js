@@ -27,3 +27,27 @@ function doMove(obj,attr,dir,target,endFn) {
         }
     },30);
 }
+
+function doShake(obj, attr, endFn) {
+    if(obj.onOff==false){
+        return;
+    }
+    obj.onOff=false;
+    clearInterval(obj.shake);
+    var num = 0;
+    var pos = parseInt(getStyle(obj, attr));
+    var arr = [];
+    for (var i = 20; i > 0; i -= 2) {
+        arr.push(i, -i);
+    }
+    arr.push(0);
+    obj.shake = setInterval(function () {
+        obj.style[attr] = pos + arr[num] + 'px';
+        num++;
+        if (num === arr.length) {
+            clearInterval(obj.shake);
+            obj.onOff=true;
+            endFn && endFn();
+        }
+    }, 80);
+}
