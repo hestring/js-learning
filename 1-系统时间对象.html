@@ -27,7 +27,9 @@
                 return '星期六';
         }
     }
-
+    function toTwo(n){
+        return n>=10?''+n:'0'+n;
+    }
     setInterval(showTime, 1000);
     showTime();
     function showTime() {
@@ -36,7 +38,7 @@
         str = `
         ${oDate.getFullYear()}年${myMonth(oDate.getMonth())}月${oDate.getDate()}日<br>
         ${myDay(oDate.getDay())}<br>
-        ${oDate.getHours()}时${oDate.getMinutes()}分${oDate.getSeconds()}秒`;
+        ${toTwo(oDate.getHours())}时${toTwo(oDate.getMinutes())}分${toTwo(oDate.getSeconds())}秒`;
         document.body.innerHTML = str;
     }
 </script>
