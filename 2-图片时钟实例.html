@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="time">
+
+</p>
+<img src="time/0.JPG" alt="">
+<img src="time/0.JPG" alt="">
+<img src="time/0.JPG" alt="">
+<img src="time/0.JPG" alt="">
+<img src="time/0.JPG" alt="">
+<img src="time/0.JPG" alt="">
+<script>
+    var oP=document.getElementById('time');
+    var aImg=document.getElementsByTagName('img');
+    showTime();
+    setInterval(showTime,1000);
+    function showTime() {
+        var oDate=new Date();
+        var iHours=oDate.getHours();
+        var iMinutes=oDate.getMinutes();
+        var iSeconds=oDate.getSeconds();
+        var str='';
+        str=''+iHours+iMinutes+iSeconds;
+        oP.innerHTML=str;
+        for (var i=0;i<aImg.length;i++){
+            aImg[i].src='time/'+str.charAt(i)+'.JPG';
+        }
+    }
+</script>
+</body>
+</html>
