@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            margin: 0;
+        }
+        #content{
+            width: 500px;
+            border: 10px solid #ff0;
+            background: pink;
+            margin: 10px auto;
+        }
+        #content p{
+            font: 16px/28px '微软雅黑', sans-serif;
+            text-indent: 2em;
+        }
+        #content span{
+            background: #0ff;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('content');
+            var oP=oDiv.getElementsByTagName('p')[0];
+            var aInp=document.getElementsByTagName('input');
+            var sContent=oP.innerHTML;
+            aInp[1].onclick=function () {
+                oP.innerHTML=sContent;
+                var str=aInp[0].value;
+                oP.innerHTML=oP.innerHTML.split(str).join('<span>'+str+'</span>');
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+<input type="button" value="查找">
+<div id="content">
+    <p> 两周来，中国电信联合抖音推出“无限流量卡”，中国移动携手百度推出“百度卡”、联合爱奇艺电视推出“果冻卡”无限流量套餐等。记者调查发现，运营商与互联网公司合作推出APP专属流量免费卡，已是遍地可见，例如联通与腾讯推出王卡、与今日头条推出“头条关心卡”，均是对应APP定向免流量费;支付宝、百度均有联合运营商推出“蚂蚁宝卡”、“百度圣卡”。</p>
+</div>
+
+</body>
+</html>
