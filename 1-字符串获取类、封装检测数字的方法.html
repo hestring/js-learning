@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+<input type="button" value="判断数字">
+<script>
+    var aInp=document.getElementsByTagName('input');
+
+    function detectNumber(str) {//48-57间为数字
+        if(str.length===0){
+            return false;
+        }
+        for (var i=0;i<str.length;i++){
+            if(str.charCodeAt(i)<48||str.charCodeAt(i)>57){
+                return false;
+            }
+        }
+        return true;
+    }
+    aInp[1].onclick=function () {
+        if(detectNumber(aInp[0].value)){
+            alert('全是数字');
+        }else{
+            alert('No!存在非数字。');
+        }
+    }
+</script>
+</body>
+</html>
