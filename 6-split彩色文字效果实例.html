@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content{
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+            padding: 30px;
+            background: #eee;
+        }
+        #content span{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            font: 30px/50px '微软雅黑', sans-serif;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('content');
+            var aInp=document.getElementsByTagName('input');
+            var arrColor=['#ffc','#cc3','#6fc','#9c9'];
+            aInp[1].onclick=function () {
+                var str=aInp[0].value;
+                var arr=str.split('');
+                for(var i=0;i<arr.length;i++){
+                    arr[i]='<span style="background: '+arrColor[i%arrColor.length]+'">'+arr[i]+'</span>';
+                }
+                oDiv.innerHTML+=arr.join('');
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="content"></div>
+<input type="text">
+<input type="button" value="确定">
+</body>
+</html>

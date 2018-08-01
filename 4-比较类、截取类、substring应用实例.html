@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            background: pink;
+            border: 10px solid #ff0;
+            margin: 10px auto;
+            font: 16px/25px Consolas, serif;
+            padding: 30px;
+        }
+        #box p {
+            text-indent: 2em;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oSpan=document.getElementsByTagName('span')[0];
+            var oA=document.getElementsByTagName('a')[0];
+            var str=oSpan.innerHTML;
+            var onOff=true;
+            oA.onclick=function () {
+                if(onOff){
+                    oSpan.innerHTML=str.slice(0,40);
+                    oA.innerHTML='>>展开';
+                }else{
+                    oSpan.innerHTML=str;
+                    oA.innerHTML='>>收缩';
+                }
+                onOff=!onOff;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <p>
+        <span>Not a few examples can be found around us in our daily life. Limited by time and space, I haveto skip them over. However, juvenile delinquency, being a serious social problem concerning the young generation, certainly deserves special attention. I think of all the things we can do, the most fundamental one is deepening and strengthening education so as to ultimately save the young.</span>
+        ...
+        <a href="#">>>收缩</a>
+    </p>
+</div>
+<script>
+
+</script>
+</body>
+</html>
