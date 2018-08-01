@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var iNow=new Date();
+    var iNew=new Date(2018,7,22,0,0,0);
+    var t=Math.floor((iNew-iNow)/1000);
+    var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)+'时'+Math.floor(t%3600/60)+'分'+Math.floor(t%60)+'秒';
+    alert(str);
+    /*
+    t/1000%60 s
+    t/1000/60/60/24 date
+    t/1000%3600/60 mi
+    t/1000%86400/3600
+    */
+</script>
+</body>
+</html>
