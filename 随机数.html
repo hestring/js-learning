@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //随机生成范围数字函数
+    function myRamdom(a,b) {
+        return Math.floor(Math.random()*(b-a+1)+a);
+    }
+    var str='';
+    var count={
+        count0:0,
+        count1:0,
+        count2:0,
+        count3:0,
+    };
+    for(var i=0;i<100000;i++){
+        // var num=Math.round(Math.random()*3); //每个数概率不同
+        var num=Math.floor(Math.random()*4);  //每个数概率相同
+        //测试概率代码
+        switch (num) {
+            case 0:
+                count.count0++;
+                break;
+            case 1:
+                count.count1++;
+                break;
+            case 2:
+                count.count2++;
+                break;
+            case 3:
+                count.count3++;
+                break;
+        }
+        str+=num+' ';
+    }
+
+
+    document.body.innerHTML=str;
+    //将生成次数打印到控制台
+    console.log(count);
+</script>
+</body>
+</html>

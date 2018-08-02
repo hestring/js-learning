@@ -51,3 +51,8 @@ function doShake(obj, attr, endFn) {
         }
     }, 80);
 }
+
+//随机生成范围数字函数
+function myRamdom(a,b) {
+    return Math.floor(Math.random()*(b-a+1)+a);
+}
